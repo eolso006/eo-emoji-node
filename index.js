@@ -1,11 +1,23 @@
+const http = require('http')
 const emoji = require('node-emoji')
 
-const emojis = [];
+const server = http.createServer((req, res) => {
+  
+  res.write(emoji.random().emoji);
+  res.end();
+});
 
-for (var i = 0; i < 10; i++) {
-  emojis.push(emoji.random().emoji);
-}
+server.listen(8001);
 
-for (var i = 0; i < emojis.length; i++) {
-  console.log(emojis[i]);
-}
+
+
+/////// emoji part /////////////
+// const emojis = [];
+//
+// for (var i = 0; i < 10; i++) {
+//   emojis.push(emoji.random().emoji);
+// }
+//
+// for (var i = 0; i < emojis.length; i++) {
+//   console.log(emojis[i]);
+// }
